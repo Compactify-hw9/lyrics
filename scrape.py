@@ -5,7 +5,7 @@ year = 2022
 originalURL = 'https://earthquakescanada.nrcan.gc.ca/recent/2022/index-en.php#wb-auto-5'
 newURL = originalURL[0:45] + str(year) + originalURL[-23:]
 
-html_text = requests.get('https://earthquakescanada.nrcan.gc.ca/recent/2022/index-en.php#wb-auto-5').text
+html_text = requests.get(newURL).text
 soup = BeautifulSoup(html_text, 'lxml')
 table = soup.find('tbody')
 
@@ -20,6 +20,3 @@ datesList = []
 for date in dates:
     if date.text != "Felt" and date.text != "Not felt":
         datesList.append(date.text)
-
-print(locationsList)
-print(datesList)
