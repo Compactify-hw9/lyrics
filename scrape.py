@@ -35,8 +35,6 @@ for i in range(14):
         longlist[i].replace(str(locationsList[i]),'')
         longlist[i]=longlist[i][:76]
 
-
-
     Longitudes = []
     Latitudes = []
     for i in longlist:
@@ -55,7 +53,7 @@ for i in range(14):
         Longitudes.append(Longitude)
 
         x=table.find('headers="lon"')
-        Latitude = table[x+10:x+19]
+        Latitude = table[x+14:x+19]
         number = re.findall("\d+\.\d+", Latitude)
         if number == '':
             Latitude = re.findall("[0-9]+",Latitude)
@@ -68,7 +66,7 @@ for i in range(14):
     for i in range(len(locationsList)):
         try:
             data_to_append = [
-                [locationsList[i], datesList[i], Magnitudes[i], Longitudes[i], Latitudes[i]]
+                [locationsList[i], datesList[i], Magnitudes[i], Longitudes[i], float(Latitudes[i][0])]
             ]
         except IndexError:
             break

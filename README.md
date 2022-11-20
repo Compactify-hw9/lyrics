@@ -1,2 +1,2 @@
-# lyrics
-getting lyrics with spotify api
+# geodude server
+generates csv data files after webscraping data
