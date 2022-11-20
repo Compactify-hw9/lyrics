@@ -69,7 +69,7 @@ for i in range(14):
                 [locationsList[i], datesList[i], Magnitudes[i], Longitudes[i], float(Latitudes[i][0])]
             ]
         except IndexError:
-            break
+            continue
         file = open(csvName, 'a', newline='')
         writer = csv.writer(file)
         writer.writerows(data_to_append)
